@@ -1,5 +1,22 @@
 {
-  "sales": [10, 20, 30, 40],
-  "revenue": [50, 70, 80, 90],
-  "labels": ["January", "February", "March", "April"]
+  "revenue": {
+    "labels": ["January", "February", "March"],
+    "values": [12000, 15000, 18000]
+  },
+  "expenses": {
+    "labels": ["2020", "2021", "2022", "2023"],
+    "values": [20000, 25000, 30000, 40000]
+  },
+  "budgetClaims": {
+    "labels": ["Claimed", "Unclaimed", "Exceeded"],
+    "values": [40, 30, 30]
+  },
+  "approvalRates": {
+    "labels": ["Approved", "Rejected"],
+    "values": [80, 20]
+  },
+  "overtime": {
+    "labels": ["Contractor", "Engineer", "Designer", "Manager"],
+    "values": [5, 10, 8, 3]
+  }
 }

@@ -12,7 +12,7 @@ const Sidebar = () => {
     <aside className="bg-gray-700 text-white h-screen transition-all duration-300 flex flex-col w-64 fixed top-0 left-0">
       {/* Top Section */}
       <div className={"flex items-center justify-center p-4"}>
-        <span className="text-xl font-bold">Dashboard</span>
+        <span className="text-xl font-bold">Ikigai</span>
       </div>
 
       {/* Navigation Items */}
