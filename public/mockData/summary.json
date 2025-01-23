@@ -1,0 +1,40 @@
+{
+  "sanctioned": {
+    "total": "$5000",
+    "noOfTransactions": 100,
+    "percentageDifference": "+10%",
+    "breakdown": {
+      "week": "$200",
+      "month": "$1000",
+      "quarter": "$4000"
+    }
+  },
+  "topRoles": [
+    {
+      "role": "Principal Architect III",
+      "rate": "$1000/hr",
+      "amount": "$3000"
+    },
+    {
+      "role": "Software Engineer III",
+      "rate": "$150/hr",
+      "amount": "$1000"
+    },
+    {
+      "role": "Business Analyst",
+      "rate": "$100/hr",
+      "amount": "$700"
+    },
+    {
+      "role": "Devops Engineer II",
+      "rate": "$300/hr",
+      "amount": "$600"
+    },
+
+    {
+      "role": "QA Engineer I",
+      "rate": "$150/hr",
+      "amount": "$600"
+    }
+  ]
+}

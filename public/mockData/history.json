@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "date": "2024-01-01",
+    "status": "Approved",
+    "amount": "$200"
+  },
+  {
+    "id": 2,
+    "date": "2024-02-01",
+    "status": "Approved",
+    "amount": "$1000"
+  },
+  {
+    "id": 3,
+    "date": "2024-03-01",
+    "status": "Approved",
+    "amount": "$1000"
+  },
+  {
+    "id": 4,
+    "date": "2024-04-01",
+    "status": "Approved",
+    "amount": "$1000"
+  },
+  {
+    "id": 5,
+    "date": "2024-05-01",
+    "status": "Approved",
+    "amount": "$1000"
+  },
+  {
+    "id": 6,
+    "date": "2024-06-01",
+    "status": "Approved",
+    "amount": "$1000"
+  }
+]

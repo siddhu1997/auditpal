@@ -1,0 +1,5 @@
+{
+  "sales": [10, 20, 30, 40],
+  "revenue": [50, 70, 80, 90],
+  "labels": ["January", "February", "March", "April"]
+}
