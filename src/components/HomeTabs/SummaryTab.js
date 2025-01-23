@@ -69,7 +69,7 @@ const SummaryTab = () => {
                   >
                     <td className="px-4 py-2">{contractor.role}</td>
                     <td className="px-4 py-2">{contractor.rate}</td>
-                    <td className="px-4 py-2">${contractor.amount}</td>
+                    <td className="px-4 py-2">{contractor.amount}</td>
                   </tr>
                 ))}
               </tbody>

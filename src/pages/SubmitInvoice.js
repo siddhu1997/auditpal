@@ -41,8 +41,8 @@ const SubmitInvoice = () => {
     <div
       className="border-dashed border-2 border-gray-300 rounded-md p-6 flex flex-col justify-center items-center"
       style={{
-        width: "700px",
-        height: isUploading ? "400px" : "300px",
+        width: "500px",
+        height: "200px",
         margin: "auto",
       }}
     >
@@ -74,8 +74,8 @@ const SubmitInvoice = () => {
   const renderProcessingStepper = () => {
     const steps = [
       { label: "Uploading Invoice", status: "Completed" },
-      { label: "Validating Invoice", status: "In Progress" },
-      { label: "Extracting Data", status: "Pending" },
+      { label: "Extracting Data", status: "In Progress" },
+      { label: "Validating Invoice", status: "Pending" },
       { label: "Applying AI Analysis", status: "Pending" },
       { label: "Finalising Invoice", status: "Pending" },
     ];
@@ -108,9 +108,9 @@ const SubmitInvoice = () => {
                 )}
               </div>
               {/* Step Line */}
-              {index < steps.length - 1 && (
+              {index < steps.length && (
                 <div
-                  className={`w-full h-1 ${
+                  className={`w-full transition ease-linear h-1 ${
                     processingStep > index ? "bg-green-500" : "bg-gray-300"
                   }`}
                 />
@@ -152,9 +152,9 @@ const SubmitInvoice = () => {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Submit Invoice</h1>
+      {!processingStep > 0 && <h1 className="text-2xl font-bold mb-4">Submit Invoice</h1>}
       <div className="flex flex-col items-center space-y-10">
-        {renderDropZone()}
+        {!processingStep > 0 && renderDropZone()}
         <br />
         {processingStep > 0 && renderProcessingStepper()}
       </div>

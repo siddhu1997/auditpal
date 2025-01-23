@@ -8,9 +8,9 @@ const App = () => (
   <Router>
     <div className="flex">
       <Sidebar />
-      <div className="flex-1">
+      <div className="flex-1 ml-64">
         <Navbar />
-        <div className="p-4">
+        <div className="p-6">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/analytics" element={<Analytics />} />

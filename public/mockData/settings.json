@@ -1,0 +1,24 @@
+{
+    "organizationName": "Jio Communications", 
+    "adminName": "Siddharth", 
+    "adminEmail": "siddharth.sreedevi@jio.com", 
+    "monthlyBudget": 50000,
+    "users": [
+        {
+            "name": "Siddharth S",
+            "email": "siddharth.sreedevi@jio.com"
+        },
+        {
+            "name": "Dhananjay L Narayan",
+            "email": "dj@jio.com"
+        },
+        {
+            "name": "Rajesh Raman Bosak",
+            "email": "rrb@jio.com"
+        },
+        {
+            "name": "Kamesh B",
+            "email": "kamesh.b@jio.com"
+        }
+    ]
+}

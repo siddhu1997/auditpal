@@ -15,6 +15,7 @@ const useInvoiceProcessing = () => {
       socket.on("invoiceProcessing", (step) => {
         setProcessingStep(step);
         if (step === 4) {
+          setProcessingStep(5);
           setInvoiceProcessed(true);
           socket.disconnect();
         }
