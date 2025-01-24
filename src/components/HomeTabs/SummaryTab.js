@@ -1,3 +1,4 @@
+import { Tooltip } from "@mui/material";
 import { useSummaryData } from "../../hooks";
 
 const SummaryTab = () => {
@@ -18,21 +19,29 @@ const SummaryTab = () => {
         <div className="bg-gray-200 p-6 rounded mb-4">
           {data?.sanctioned && (
             <>
-              <p className="text-2xl font-bold mb-1">
-                {data?.sanctioned?.total ?? "N/A"}
-              </p>
-              <p className="text-4xl font-bold mb-1">
-                {data?.sanctioned?.noOfTransactions ?? "N/A"}
-              </p>
-              <p
-                className={`${
-                  data?.sanctioned?.percentageDifference?.includes("+")
+              <div className="flex items-center">
+                <p className="text-2xl font-bold mb-1">
+                  {data?.sanctioned?.total ?? "N/A"}
+                </p>
+                <p className="text-xs">&nbsp;&nbsp;&nbsp;- amount approved so far</p>
+              </div>
+              <div className="flex items-center">
+                <p className="text-4xl font-bold mb-1">
+                  {data?.sanctioned?.noOfTransactions ?? "N/A"}
+                </p>
+                <p className="text-xs">&nbsp;&nbsp;&nbsp;- no. of invoices processed so far</p>
+              </div>
+              <div className="flex items-center">
+                <p
+                  className={`${data?.sanctioned?.percentageDifference > 0
                     ? "text-green-500"
                     : "text-red-700"
-                } font-bold`}
-              >
-                {data?.sanctioned?.percentageDifference}
-              </p>
+                    } font-bold text-xs`}
+                >
+                  {data?.sanctioned?.percentageDifference?.toFixed(2) ?? "N/A"}%
+                </p>
+                <p className="text-xs">&nbsp;&nbsp;&nbsp;- percentage difference from last month</p>
+              </div>
             </>
           )}
         </div>
@@ -41,7 +50,7 @@ const SummaryTab = () => {
             {Object.keys(data?.sanctioned?.breakdown).map((timePeriod) => {
               return (
                 <div className="bg-gray-200 text-gray-700 px-4 py-2 rounded">
-                  {`${data.sanctioned.breakdown[timePeriod]} this ${timePeriod}`}
+                  {`$${data.sanctioned.breakdown[timePeriod].toFixed(2)} this ${timePeriod}`}
                 </div>
               );
             })}
@@ -57,19 +66,17 @@ const SummaryTab = () => {
               <thead>
                 <tr className="bg-gray-200">
                   <th className="text-left px-4 py-2">Role</th>
-                  <th className="text-left px-4 py-2">Rate</th>
                   <th className="text-left px-4 py-2">Total Amount ($)</th>
                 </tr>
               </thead>
               <tbody>
-                {data.topRoles.map((contractor, index) => (
+                {data.topRoles.map(([contractorName, contractorAmount], index) => (
                   <tr
                     key={index}
                     className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}
                   >
-                    <td className="px-4 py-2">{contractor.role}</td>
-                    <td className="px-4 py-2">{contractor.rate}</td>
-                    <td className="px-4 py-2">{contractor.amount}</td>
+                    <td className="px-4 py-2">{contractorName}</td>
+                    <td className="px-4 py-2">{contractorAmount}</td>
                   </tr>
                 ))}
               </tbody>

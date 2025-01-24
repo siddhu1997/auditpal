@@ -47,7 +47,7 @@ const Sidebar = () => {
             <span className="ml-4">Contracts</span>
           </Link>
         </li>
-        <li
+        {/* <li
           className={
             "hover:bg-gray-600 rounded-full p-2 flex items-center pl-4"
           }
@@ -56,7 +56,7 @@ const Sidebar = () => {
             <FontAwesomeIcon icon={faCog} className="text-lg" />
             <span className="ml-4">Settings</span>
           </Link>
-        </li>
+        </li> */}
       </ul>
 
       {/* Fixed Bottom Section */}

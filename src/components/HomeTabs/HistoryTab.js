@@ -22,7 +22,7 @@ const HistoryTab = () => {
   return (
     <div className="p-6 rounded">
       <h2 className="text-lg font-bold pb-4">History of invoices submitted so far</h2>
-      {data?.length ? (
+      {data?.length > 0 ? (
         <table className="table-auto border-collapse border border-gray-300 w-full">
           <thead>
             <tr className="bg-gray-200">

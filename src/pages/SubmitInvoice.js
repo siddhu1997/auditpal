@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useMockUpload } from "../hooks";
+import { useFileUpload } from "../hooks";
 import useInvoiceProcessing from "../hooks/useInvoiceProcessing";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons/faChevronCircleRight";
 
 const SubmitInvoice = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const { mockUpload } = useMockUpload();
+  const [uploadFile, uploadError] = useFileUpload("invoices");
   const { processingStep, invoiceProcessed, startProcessing } =
     useInvoiceProcessing();
 
@@ -22,10 +21,11 @@ const SubmitInvoice = () => {
 
       for (const file of files) {
         const progressCallback = (percent) => setProgress(percent);
-        await mockUpload(file, progressCallback, startProcessing);
+        await uploadFile(file, progressCallback, startProcessing);
       }
 
       setIsUploading(false);
+      setProgress(0);
     }
   };
 
@@ -149,6 +149,10 @@ const SubmitInvoice = () => {
       </div>
     );
   };
+
+  if(uploadError) {
+    return <div className="p-8">Error: {uploadError}</div>;
+  }
 
   return (
     <div className="p-8">

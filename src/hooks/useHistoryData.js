@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import { BASE_URL } from "../utils/constants";
 
 const useHistoryData = () => {
   const [error, setError] = useState("");
@@ -8,7 +9,8 @@ const useHistoryData = () => {
   const fetchHistoryData = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("/mockData/history.json");
+      const url = `${BASE_URL}/invoices`;
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Failed to fetch history data.");
       }
