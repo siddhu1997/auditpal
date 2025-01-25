@@ -21,7 +21,7 @@ const SubmitInvoice = () => {
 
       for (const file of files) {
         const progressCallback = (percent) => setProgress(percent);
-        await uploadFile(file, progressCallback, startProcessing);
+        await uploadFile(file, progressCallback);
       }
 
       setIsUploading(false);

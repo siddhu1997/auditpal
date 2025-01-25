@@ -1,4 +1,5 @@
 export { default as useAnalyticsData } from "./useAnalyticsData";
+export { default as useGetAnomalyData } from "./useGetAnomalyData";
 export { default as useDeleteFile } from "./useDeleteFile"
 export { default as useGetContracts } from "./useGetContracts";
 export { default as useGetSettings } from "./useGetSettings";

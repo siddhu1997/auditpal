@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useFileUpload, useGetContracts, useDeleteFile } from "../hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import PaginatedTableModal from "../components/Modals/PaginatedTableModal";
+import { ContractRolesTable } from "../components/HomeTabs";
 
 const Contracts = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [contractIdToBeDeleted, setContractIdToBeDeleted] = useState(null);
@@ -13,8 +16,8 @@ const Contracts = () => {
   const [data, setData, isLoading, error] = useGetContracts([isUploading, isDeleting]);
 
   // Update data with fetched contracts
-  useEffect(() =>{
-    if(contractIdToBeDeleted) {
+  useEffect(() => {
+    if (contractIdToBeDeleted) {
       deleteFile("contract", contractIdToBeDeleted);
       setData(null);
       setContractIdToBeDeleted(null);
@@ -38,6 +41,10 @@ const Contracts = () => {
   const handleDelete = (contractId) => {
     setContractIdToBeDeleted(contractId);
   };
+
+  const handleOnClick = () => {
+    setIsModalOpen(true);
+  }
 
   const renderDropZone = () => (
     <div
@@ -111,13 +118,8 @@ const Contracts = () => {
               </p>
               <div className="flex justify-between align-bottom items-center">
                 <div>
-                  <a
-                    href={doc.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-300 rounded-lg hover:bg-gray-100"
-                  >
-                    See contract roles
+                  <button onClick={handleOnClick} className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-800 bg-white border border-gray-300 rounded-lg hover:bg-gray-100">
+                    View Rates
                     <svg
                       className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                       aria-hidden="true"
@@ -133,7 +135,7 @@ const Contracts = () => {
                         d="M1 5h12m0 0L9 1m4 4L9 9"
                       />
                     </svg>
-                  </a>
+                  </button>
                 </div>
                 <div className="p-4 flex justify-between items-center">
                   <button
@@ -165,6 +167,7 @@ const Contracts = () => {
           {renderUploadedContracts()}
         </div>
       )}
+      {isModalOpen && <PaginatedTableModal onClose={() => setIsModalOpen(false)} title="Contracter Roles" data={data.map(item => item.data.slice(0, 10))?.[0]} Table={ContractRolesTable} />}
     </div>
   );
 };

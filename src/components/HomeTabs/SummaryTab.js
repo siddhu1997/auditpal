@@ -1,4 +1,3 @@
-import { Tooltip } from "@mui/material";
 import { useSummaryData } from "../../hooks";
 
 const SummaryTab = () => {
@@ -60,12 +59,12 @@ const SummaryTab = () => {
       {/* Second Section (Top 5 Contractor Roles) */}
       {data?.topRoles && (
         <div className="p-6 rounded">
-          <h2 className="text-lg font-bold mb-4">Top 5 Contractor Roles</h2>
+          <h2 className="text-lg font-bold mb-4">Top 5 Contractors</h2>
           {data?.topRoles.length > 0 ? (
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="text-left px-4 py-2">Role</th>
+                  <th className="text-left px-4 py-2">Contractor Name</th>
                   <th className="text-left px-4 py-2">Total Amount ($)</th>
                 </tr>
               </thead>

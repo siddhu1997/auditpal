@@ -15,7 +15,6 @@ const useSummaryData = () => {
         throw new Error("Failed to fetch summary.");
       }
       const data = await response.json();
-      console.log(data);
       setData(data);
     } catch (error) {
       setError(error.message);
